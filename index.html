@@ -8,6 +8,7 @@
   <body>
     <h1>데이터 type 테스트중...</h1>
     <script>
+      "use strict";
       //1. 넘버는 산술연산이 가능하다.
 
       let num1 = 10; // int(정수)
@@ -20,11 +21,27 @@
       let isRun = true; //비교연산의 결과로 만들어지기도 한다.
       let isWaite = false;
       // object type
+      // 여러개의 데이터를 key값으로 관리하고자 할 때 사용한다.
+      // 순서가 중요치 않은 다양한 type 데이터를 관리 할 떄 주로 사용.
       let mem = { num: 1, name: "김구라", addr: "노량진" };
 
       // array type
+      //여러개의 데이터를 index 값으로 관리하고자 할 때 사용한다.
+      // 순서가 중요한 한가지 type을 관리 할 때 주로 사용
       let nums = [10, 20, 30];
       let names = ["김구라", "해골", "원숭이"];
+
+      //funtion type
+      //특정 시점에 일괄 실행할 javascript를 모아 놓을 때 사용한다.
+      let v1 = function () {
+        console.log("하나");
+        console.log("두울");
+        console.log("three");
+      };
+
+      //7.undefined type
+      let a; // 변수를 선언만 하면 undefined가 들어있다.
+      let b = undefined; //undefined 예약어를 이용해서 만들기도 한다.
     </script>
   </body>
 </html>
