@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>functino</h1>
+    <script>
+      function keepBeer() {} //무조건 함수가 만들어지는 순서다.
+
+      const keepBeer2 = function () {
+        //순서대로 만들어진다.
+        console.log("냉장고 문을 연다");
+        console.log("맥주를 넣는다");
+        console.log("냉장고 문을 닫는다.");
+      }; //함수는 이 방식이 좀 더 좋다고 한다. 구글 가이드라인.
+    </script>
+  </body>
+</html>
