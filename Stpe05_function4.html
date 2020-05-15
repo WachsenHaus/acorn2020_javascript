@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>function type 테스트중...</title>
+  </head>
+  <body>
+    <h1>function type 테스트중...</h1>
+    <script>
+      const getInfo = function () {
+        const mem = { num: 1, name: "김구라", isMan: true };
+        return mem;
+      };
+
+      const getList = function () {
+        const friends = ["김구라", "해골", "원숭이"];
+        return friends;
+      };
+
+      const getCar = function () {
+        const car = {
+          name: "소나다",
+          drive: function () {
+            console.log("달려요");
+          },
+        };
+        return car;
+      };
+
+      const a = getCar; //function 타입
+      const b = getCar(); // 오브젝트타입
+      const c = getCar().name; //스트링타입
+      const d = getCar().drive; // 펑션타입
+      const e = getCar().drive(); //undefined타입
+    </script>
+  </body>
+</html>
