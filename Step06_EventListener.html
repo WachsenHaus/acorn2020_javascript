@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stemp06_EventListener.html</title>
+    <style>
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: yellow;
+        border: 1px solid red;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>EventListener 함수 테스트중.</h1>
+    <div class="box" onclick="clicked()" onmouseover="mouseovered()">div1</div>
+    <div id="div2" class="box">div2</div>
+
+    <script>
+      function clicked() {
+        console.log("마우스를 눌렀다.");
+      }
+      function mouseovered() {
+        console.log("마우스를 올렸다.");
+      }
+
+      document.querySelector("#div2").addEventListener("click", clicked);
+      document.querySelector("#div2").addEventListener("mouseover", mouseovered);
+    </script>
+  </body>
+</html>

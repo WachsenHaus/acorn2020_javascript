@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width= , initial-scale=1.0" />
+    <title>Step06_EventListener3.html</title>
+    <style>
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: yellow;
+        border: 1px solid red;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>이벤트 리스너 함수 테스트중...</h1>
+
+    <div class="box">div1</div>
+    <div class="box">div2</div>
+    <div class="box">div3</div>
+    <div class="box">div4</div>
+    <div class="box">div5</div>
+
+    <script>
+      let divBoxes = document.querySelectorAll(".box");
+      var divBoxes2 = document.querySelectorAll(".box");
+      var ddd = 0;
+      //
+      //   for 루프의 let i는 for loop에서만 유효한 지역 변수이다. 또한, i는 자유 변수로서 for 루프의 생명주기가 종료되어도 변수 i를 참조하는 함수가 존재하는 한 계속 유지된다.
+
+      //   for (let i = 0; i < divBoxes.length; i++) {
+      //     divBoxes[i].addEventListener("click", () => {
+      //       divBoxes[i].innerText = "Clicked!";
+      //       console.log(i);
+      //     });
+      //   }
+
+      //   const obj = { foo: 123 };
+      //   obj.bar = 123213;
+      //   //   // ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,// ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,// ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+      for (var i = 0; i < divBoxes.length; i++) {
+        divBoxes2[i].addEventListener("click", function () {
+          // divBoxes2[5].innerText = "Clicked!";
+          //   console.log(i);
+        });
+      }
+      //   console.log(divBoxes.length);
+      let status = 0;
+      var i = 0;
+      for (; i < 5; i++) {
+        console.log(i);
+        if (i === 4) {
+          status = 1;
+        }
+      }
+      if (status === 1) {
+        console.log("반복문은 정상적으로 4번까지왔습니다.");
+      }
+      console.log(`i를 출력합니다. ${i}`);
+
+      //   // ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,// ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,// ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+      //   for (var i = 0; i < divBoxes.length; i++) {
+      //     divBoxes2[i].addEventListener("click", TEST_FUNCTION);
+      //   }
+
+      function TEST_FUNCTION() {
+        //이 함수 입장에서는 지금 divBoxes[i]가 뭔지 모르는거야.
+        divBoxes[i].innerText = "C  licked!";
+      }
+      //   // ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,// ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,// ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,// ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+      //   for (let i of divBoxes) {
+      //     i.addEventListener("click", () => {
+      //       i.innerText = "Clicked!";
+      //     });
+      //   }
+    </script>
+  </body>
+</html>

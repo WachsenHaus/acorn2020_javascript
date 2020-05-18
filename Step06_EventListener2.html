@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Step06_EventListener2.html</title>
+    <style>
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: yellow;
+        border: 1px solid red;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>함수 테스트중.....EventListener</h1>
+    <div id="one" class="box">div</div>
+    <div id="two" class="box">div</div>
+    <script>
+      // id가 one인 div를 click하면 해당 div의 inner Text가
+      // "Clicked!"로 바뀌도록 해보세요
+      const boxItem1 = document.querySelector("#one");
+      const boxItem2 = document.querySelector("#two");
+      boxItem1.addEventListener("click", function () {
+        this.innerText = "Clicked!";
+      });
+      boxItem2.addEventListener("click", function () {
+        this.innerText = "Clicked!";
+      });
+    </script>
+  </body>
+</html>
