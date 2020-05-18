@@ -24,11 +24,11 @@
 
       const printBtn = document.querySelector("#printBtn");
       const pArray = document.querySelectorAll("p");
-      //   printBtn.addEventListener("click", () => {
-      //     names.forEach(function (data, index) {
-      //       pArray[index].innerText = data;
-      //     });
-      //   });
+      printBtn.addEventListener("click", function () {
+        names.forEach(function (data, index) {
+          pArray[index].innerText = data;
+        });
+      });
 
       //   printBtn.addEventListener(
       //     "click",
@@ -37,7 +37,7 @@
       //     })
       //   );
 
-      //   printBtn.addEventListener("click", console.log("abc"); console.log("cde"););
+      //   printBtn.addEventListener("click", console.log("abc"));
 
       // 함수의 호출방법을 알아야한다.
       // 함수명+() 와 함수명 의 차이는 ?
