@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Step07_operator2.html</title>
+  </head>
+  <body>
+    <h1>논리 연산자 테스트</h1>
+    <script>
+      /* 
+    2.논리(boolean) 연산자
+    - 논리값 (true,false)    
+
+
+    */
+
+      var test = [];
+      for (var i = 0; i < 3; i++) {
+        test.push(function () {
+          console.log(i);
+        });
+      } //배열 test에 콘솔로그를 출력하는 함수를 3개를 넣었다.
+
+      for (var j = 0; j < 3; j++) {
+        test[j](); //test에 들어있는 함수들을 호출해보았다.
+      }
+      console.log(i);
+    </script>
+  </body>
+</html>

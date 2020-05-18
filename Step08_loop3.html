@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Step08_loop3.html</title>
+  </head>
+  <body>
+    <h1>반복문 while 테스트중...</h1>
+    <script>
+      const names = ["김구라", "해골", "원숭이", "주뎅이", "덩어리"];
+      let count = 0;
+      while (count < names.length) {
+        console.log(names[count]);
+        count++;
+      }
+      while (true) {
+        console.log(names[count]);
+        count++;
+        if (count == names.length) {
+          break;
+        }
+      }
+
+      let a = 10;
+      let b = 20;
+      {
+        console.log(a);
+      }
+      {
+        console.log(b); //참조 오류.
+        let b = 50;
+        console.log(b);
+      }
+    </script>
+  </body>
+</html>

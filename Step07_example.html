@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Step07_example.html</title>
+  </head>
+  <body>
+    <h2>논리 연산자 테스트 예제</h2>
+    <input type="text" id="height" placeholder="키를 입력하세요...." />
+    <input type="text" id="weight" placeholder="몸무게를 입력하세요...." />
+    <button id="checkBtn">놀이 기구를 탈 수 있는지 확인하기</button>
+    <p id="console"></p>
+    <script>
+      /*
+          키가 너무 작거나 몸무게가 너무 나가면 탈 수 없는 놀이 기구가 있다.
+          키는 150이상, 몸무게는 100 미만이 기준이다.
+          키와 몸무게를 입력하고 확인하기 버튼을 누르면 해당 놀이기구를
+          탈 수 있는지 없는지 메시지를 p요소의 innerText에 출력하는 프로그래밍을 해 보세요.
+            */
+      const checkBtn = document.querySelector("#checkBtn");
+      const TEXT_ACCEPT = "탑승이 가능합니다.";
+      const TEXT_REFUSE = "탑승이 불가능합니다.";
+      if (checkBtn) {
+        checkBtn.addEventListener("click", check_HeightAndWeight);
+      }
+
+      function check_HeightAndWeight() {
+        var test = [];
+        test = document.querySelectorAll("#height", "#weight");
+        console.log(test);
+        let height = parseInt(document.querySelector("#height").value);
+        let weight = parseInt(document.querySelector("#weight").value);
+        console.log(typeof document.querySelector("#height"));
+        const consoleTxt = document.querySelector("#console");
+
+        if (height >= 150 && weight < 100) {
+          consoleTxt.innerText = TEXT_ACCEPT;
+          console.log(height);
+        } else {
+          consoleTxt.innerText = TEXT_REFUSE;
+        }
+      }
+    </script>
+  </body>
+</html>

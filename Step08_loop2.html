@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Step08_loop2.html</title>
+  </head>
+  <body>
+    <h1>반복문 For Each() 테스트중...</h1>
+    <p>p1</p>
+    <p>p2</p>
+    <p>p3</p>
+    <p>p4</p>
+    <p>p5</p>
+    <button id="printBtn">출력하기</button>
+    <script>
+      const names = ["김구라", "해골", "원숭이", "주뎅이", "덩어리"];
+
+      //array type의 forEach() 함수 호출하면서 함수 전달하기
+
+      //   names.forEach(function (a, index) {
+      //     console.log(a, index);
+      //   });
+
+      const printBtn = document.querySelector("#printBtn");
+      const pArray = document.querySelectorAll("p");
+      //   printBtn.addEventListener("click", () => {
+      //     names.forEach(function (data, index) {
+      //       pArray[index].innerText = data;
+      //     });
+      //   });
+
+      //   printBtn.addEventListener(
+      //     "click",
+      //     names.forEach(function (data, index) {
+      //       pArray[index].innerText = data;
+      //     })
+      //   );
+
+      //   printBtn.addEventListener("click", console.log("abc"); console.log("cde"););
+
+      // 함수의 호출방법을 알아야한다.
+      // 함수명+() 와 함수명 의 차이는 ?
+      // 함수명+() 는 함수의 위치로 이동해서 실행까지 하는 행동임.
+      // 함수명은. 함수의 위치값(메모리주소)을 글짜로 표현한것뿐임.
+
+      //addeventListener의 콜백함수는 1줄 짜리는 그냥 표기해도 실행이됨.)
+      // forEach는 길게 보여도 한개의 문장일 뿐이라. 문제없이 실행이되었던것.
+
+      //   printBtn.addEventListener("click", abc);
+      //   printBtn.addEventListener("click", abc());
+
+      printBtn.addEventListener("click", no);
+
+      function abc() {
+        console.log("엄마야!");
+      }
+
+      function no() {
+        names.forEach(function (data, index) {
+          pArray[index].innerText = data;
+        });
+      }
+    </script>
+  </body>
+</html>

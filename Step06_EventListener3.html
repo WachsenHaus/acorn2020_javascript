@@ -41,10 +41,11 @@
       //   //   // ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,// ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,// ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
       for (var i = 0; i < divBoxes.length; i++) {
         divBoxes2[i].addEventListener("click", function () {
-          // divBoxes2[5].innerText = "Clicked!";
-          //   console.log(i);
+          this.innerText = "Clicked!";
+          // console.log(i);
         });
       }
+
       //   console.log(divBoxes.length);
       let status = 0;
       var i = 0;
