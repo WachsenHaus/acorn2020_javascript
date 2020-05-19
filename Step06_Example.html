@@ -19,9 +19,9 @@
         document.querySelector("#inputMsg").value = "";
       });
 
-      document.querySelector("#inputMsg").addEventListener("keyup", (a) => {
+      document.querySelector("#inputMsg").addEventListener("keyup", () => {
         // console.log(event);
-        if (a.key === "Enter") {
+        if (event.key === "Enter") {
           var msg = document.querySelector("#inputMsg").value;
 
           document.querySelector("#console").innerText = msg;

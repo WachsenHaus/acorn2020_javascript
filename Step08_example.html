@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Step08_example.html</title>
+  </head>
+  <body>
+    <h1>반복문 활용 예제 테스트중...</h1>
+    <input type="text" id="inputName" placeholder="검색할 이름..." />
+    <button id="findBtn">검색</button>
+    <p id="console"></p>
+    <script>
+      //검색 버튼을 눌러서 이름이 있는지 확인하고. 있으면 그 정보를 p요소에 뿌려주자.
+      const pElement = document.querySelector("#console");
+      const findBtn = document.querySelector("#findBtn");
+      const inputElement = document.querySelector("#inputName");
+
+      const searchName = function () {
+        const intputName = inputElement.value;
+
+        for (let i = 0; i < friends.length; i++) {
+          const name = friends[i].name;
+          const phone = friends[i].phone;
+          const email = friends[i].email;
+          if (intputName === name) {
+            pElement.innerText = `이름 : ${name} 전화번호 : ${phone} 이메일 : ${email}`;
+            break;
+          } else {
+            pElement.innerText = `검색하신 사용자 정보 ( ${intputName})가 없습니다.`;
+          }
+        }
+      };
+
+      const init = function () {
+        findBtn.addEventListener("click", searchName);
+        inputElement.addEventListener("keyup", function () {
+          if (event.key === "Enter") {
+            searchName();
+          }
+        });
+      };
+
+      init();
+
+      //친구 정보를 담을 배열
+      const friends = [];
+      //배열에 sample 데이터 담기
+      friends.push({ name: "최영훈", phone: "010-2325-1002", email: "aaa@naver.com" });
+      friends.push({ name: "명자", phone: "110", email: "bbb@naver.com" });
+      friends.push({ name: "동호", phone: "111", email: "ccc@naver.com" });
+      friends.push({ name: "성미", phone: "113", email: "ddd@naver.com" });
+      friends.push({ name: "성은", phone: "114", email: "eee@naver.com" });
+    </script>
+  </body>
+</html>
