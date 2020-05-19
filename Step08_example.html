@@ -18,18 +18,6 @@
 
       const searchName = function () {
         const intputName = inputElement.value;
-
-        for (let i = 0; i < friends.length; i++) {
-          const name = friends[i].name;
-          const phone = friends[i].phone;
-          const email = friends[i].email;
-          if (intputName === name) {
-            pElement.innerText = `이름 : ${name} 전화번호 : ${phone} 이메일 : ${email}`;
-            break;
-          } else {
-            pElement.innerText = `검색하신 사용자 정보 ( ${intputName})가 없습니다.`;
-          }
-        }
       };
 
       const init = function () {
