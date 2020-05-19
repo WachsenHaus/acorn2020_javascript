@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Step09_example.html</title>
+    <style>
+      canvas {
+        border: 1px solid red;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>그림판 만들기</h1>
+    <canvas id="myCanvas" width="500" height="500"></canvas>
+    <div>
+      색상<input type="color" id="selectedColor" /> 굵기<input type="range" id="selectedWith" min="0.1" max="5.0" value="2.5" step="0.1" />
+      <strong id="displayWidth">2.5</strong>
+      <button id="clearBtn">clear</button>
+    </div>
+    <script>
+      //canvas의 참조값 얻어오기.
+      const canvas = document.querySelector("#myCanvas");
+      //클리어 버튼 정보 가져오기.
+      const clearBtn = document.querySelector("#clearBtn");
+      //canvas에 그림을 그릴 수 있는 도구의 참조값 얻어오기
+      const context = canvas.getContext("2d");
+      const color = document.querySelector("#selectedColor");
+      const range = document.querySelector("#selectedWith");
+      const INIT_STROKE = "2c2c2c";
+      const INIT_LINE_WIDTH = 2.5;
+
+      context.strokeStyle = INIT_STROKE;
+      context.lineWidth = INIT_LINE_WIDTH;
+      context.backgroundColor = INIT_STROKE;
+
+      color.addEventListener("change", function () {
+        context.strokeStyle = event.target.value.toString();
+      });
+      range.addEventListener("input", function () {
+        const inputValue = event.target.value;
+        context.lineWidth = inputValue;
+        document.querySelector("#displayWidth").innerText = inputValue;
+      });
+
+      canvas.addEventListener("mousedown", function () {
+        isPainting = true;
+      });
+
+      let isPainting = false;
+      canvas.addEventListener("mousemove", function () {
+        const x = event.offsetX;
+        const y = event.offsetY;
+
+        if (!isPainting) {
+          context.beginPath();
+          context.moveTo(x, y);
+        } else if (isPainting) {
+          context.lineTo(x, y);
+          context.stroke();
+        }
+      });
+      canvas.addEventListener("mouseup", function () {
+        isPainting = false;
+      });
+
+      clearBtn.addEventListener("click", function () {
+        context.fillStyle = "white";
+        context.fillRect(0, 0, canvas.width, canvas.height);
+      });
+    </script>
+  </body>
+</html>
