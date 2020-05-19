@@ -8,13 +8,35 @@
   <body>
     <h1>if문 테스트중...</h1>
     <p id="console"></p>
+    <ul style="cursor: pointer;">
+      <li>클릭하면 0</li>
+      <li>클릭하면 1</li>
+      <li>클릭하면 2</li>
+    </ul>
     <script>
-      let isHungry = confirm("배고파요?");
-      if (isHungry) {
-        document.querySelector("#console").innerText = "간식 무라 ~ 시끼야~ ";
-      } else if (!isHungry) {
-        document.querySelector("#console").innerText = "운동하세요~ ";
+      // let isHungry = confirm("배고파요?");
+      // if (isHungry) {
+      //   document.querySelector("#console").innerText = "간식 무라 ~ 시끼야~ ";
+      // } else if (!isHungry) {
+      //   document.querySelector("#console").innerText = "운동하세요~ ";
+      // }
+
+      const items = document.querySelectorAll("li");
+
+      var i = 44;
+      function addClick(items) {
+        for (i = 0; i < items.length; i++) {
+          items[i].onClick = function () {
+            console.log(i);
+            return i;
+          };
+        }
+        return items;
       }
+      const example = [{}, {}];
+      const clickSet = addClick(example);
+      i = 44;
+      clickSet[0].onClick();
     </script>
   </body>
 </html>
