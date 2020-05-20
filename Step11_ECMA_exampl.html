@@ -8,49 +8,27 @@
   <body>
     <h1>ECMAScript6 테스트중...</h1>
     <script>
+      var email = "최영훈@naver.com";
       class phone {
-        info = 112;
         //객체가 생성될 때 호출되는 생성자
-        constructor(brand) {
-          console.log("생성자가 호출됨!");
-          this.brand = brand;
-          console.log(this.brand);
+        constructor(email) {
+          this.email = email;
         }
         call() {
           console.log("전화를겁니다.");
         }
         //p1.number = 119;
-        set number(info) {
+        set eemail(info) {
           this.info = info;
         }
-        //p1.number();
-        get number() {
-          let str = "전화번호는" + this.info + "입니다";
-
-          return str;
+        get eemail() {
+          return this.email;
         }
       }
-
-      class tumbler {
-        constructor(material, color, capacity, maker) {
-          this.material = material;
-          this.color = color;
-          this.capacity = capacity;
-          this.maker = maker;
-        }
-        set number(value) {
-          this.uniqueNumber = value;
-        }
-        get number() {
-          return this.uniqueNumber;
-        }
-      }
-
-      let p1 = new phone("벤츠");
-      let t1 = new tumbler("알루미늄", "빨강", 350, "L&L");
-      let t2 = new tumbler("알루미늄", "녹색", 550, "스타벅스");
-      let t3 = new tumbler("알루미늄", "파랑", 150, "홈마트");
-      let t4 = new tumbler("알루미늄", "노랑", 250, "까르푸");
+      // eslint-disable-next-line no-unused-vars
+      let p1 = new phone("조은미@naver.com");
+      // eslint-disable-next-line no-unused-vars
+      let p2 = new phone("이정호@naver.com");
     </script>
   </body>
 </html>
