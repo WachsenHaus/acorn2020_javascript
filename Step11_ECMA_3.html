@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Step11_ECMA_3.html</title>
+  </head>
+  <body>
+    <h1>ecma6 테스트중.</h1>
+    <script>
+      let square = function (num1) {
+        return num1 * num1;
+      };
+
+      let b = (num1) => {
+        return num1 * num1;
+      };
+      let c = (num1) => num1 * num2;
+
+      const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+      //true인 것을 반환한다. 필터링한다.
+      let result = nums.filter((item) => {
+        console.log(item % 2 == 0);
+        return true;
+      });
+
+      let result2 = nums.filter((item) => item % 3 == 0);
+
+      //필터를 구현하는 방법 3
+      let result3 = () => {
+        const array = [];
+        nums.forEach((item) => {
+          if (item % 3 == 0) {
+            array.push(item);
+          }
+        });
+        return array;
+      };
+
+      //필터를 구현하는 방법 4
+      let result4 = (() => {
+        const array = [];
+        nums.forEach((item) => {
+          if (item % 3 == 0) {
+            array.push(item);
+          }
+        });
+        return array;
+      })();
+    </script>
+  </body>
+</html>

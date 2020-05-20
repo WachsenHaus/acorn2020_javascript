@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>ECMAScript6 테스트중...</h1>
+    <script>
+      class Car {
+        brand = "애스턴마틴";
+        color = "red";
+        drive() {
+          console.log(this.brand + "가 달려요");
+        }
+      }
+
+      let car1 = new Car();
+      let car2 = new Car();
+      let car3 = {
+        brand: "벤츠",
+        color: "black",
+        drive: function () {
+          console.log(this.brand + "드라이브합니다!");
+        },
+      };
+    </script>
+  </body>
+</html>

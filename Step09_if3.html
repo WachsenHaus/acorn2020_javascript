@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Step09_if3.html</title>
+  </head>
+  <body>
+    <h1>다중 if문 테스트중...</h1>
+    <button id="inputBtn">점수 입력 하기</button>
+    <p id="console"></p>
+    <script>
+      const pElement = document.querySelector("#console");
+
+      const outputGrade = function (point) {
+        let grade = "F";
+        if (point >= 90) {
+          grade = "A";
+        } else if (point >= 80) {
+          grade = "B";
+        } else if (point >= 70) {
+          grade = "C";
+        } else if (point >= 60) {
+          grade = "D";
+        }
+        pElement.innerText = `당신의 등급은 ${grade}입니다`;
+      };
+
+      document.querySelector("#inputBtn").addEventListener("click", function () {
+        const point = parseFloat(prompt("점수를 입력하세요."));
+        outputGrade(point);
+      });
+    </script>
+  </body>
+</html>
