@@ -11,12 +11,14 @@
       }
       h1 {
         font-size: 50px;
+        width: 80vw;
         display: flex;
         margin: 50px auto;
         justify-content: center;
+      }
+      .rott {
         animation-name: titleSmoothing;
         animation-duration: 0.5s;
-        /* animation-iteration-count: infinite; */
       }
       h2 {
         display: flex;
@@ -97,7 +99,7 @@
     </style>
   </head>
   <body>
-    <h1>💰행운의 로또 추첨기💰</h1>
+    <h1 class="rott">💰행운의 로또 추첨기💰</h1>
     <h2>Make by 최영훈</h2>
     <button id="resetBtn">다시하기</button>
     <div class="wrapper"></div>
@@ -107,6 +109,7 @@
       // 1 ~ 45 까지 랜덤한 정수를 얻어내기
       // 1. 로또 번호 6개를 랜덤하게 얻어내서 nums배열에 저장해보세요.
       const getLottoNums = function () {
+        event.preventDefault();
         const nums = [];
         while (nums.length < 6) {
           const randomValue = parseInt(Math.random() * 45) + 1;
@@ -117,6 +120,8 @@
       //2. nums배열에 저장된 숫자를 p요소에 순서대로 출력해 보세요.
       const outputResult = function (nums) {
         const getDiv = document.querySelector(".wrapper");
+        const h1 = document.querySelector(".rott");
+        console.log(h1);
         for (val of nums) {
           const p = document.createElement("p");
           const img = document.createElement("img");
@@ -125,7 +130,29 @@
           img.setAttribute("height", "80px");
           getDiv.appendChild(img);
         }
+
+        //클래스를 지움
+        h1.classList.remove("rott");
+        //아래 offsetWidth를 넣지 않으면 트리거가 발생하지않음.
+        h1.offsetWidth = h1.offsetWidth;
+        //클래스를 재할당함.
+        h1.classList.add("rott");
       };
+
+      function requestAnimation() {
+        let stopId;
+        let progress = 0;
+        let element = document.querySelector("h1");
+        function step(timestamp) {
+          if (progress > 350) {
+            cancelAnimationFrame(stopId);
+            return;
+          } else {
+            progress += 3;
+            element.style.fontSize = progress + "px";
+          }
+        }
+      }
       const clearElement = function () {
         const getDiv = document.querySelector(".wrapper");
         getDiv.innerHTML = "";

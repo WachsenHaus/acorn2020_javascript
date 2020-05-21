@@ -8,6 +8,39 @@
   <body>
     <script>
       const cart = ["Naming and Necessity", "Alice in Wonderland"];
+
+      const books = ["practical vim", "moby dick", "the dark tower"];
+      //코드는 최대한 단순하게 작성하는게 좋다.
+      function removeItem_0(items, removale) {
+        const update = [];
+        for (let i = 0; i < items.length; i++) {
+          if (items[i] != removable) {
+            updated.push(items[i]);
+          }
+        }
+        return updated;
+      }
+
+      //splice는 원본을 조작하는 특징이 있다.
+      function removeItem_1(items, removale) {
+        const index = items.indexOf(removale);
+        items.splice(index, 1);
+        return items;
+      }
+      //다른 개발자가 이 코드를 본다면 concat()으로 배열 두개를 병합해서 배열 하나를 생성한다는 사실을 이해해야하고 눈으로만 봐서는 정확히 어떤 작업을 하는 코드인지 알기 어렵다.
+
+      //slice는 시잠점부터 두번째 인자자리까지 반환한다.
+      //정확하게는... 첫번째 인자로부터 (두번째 인자 - 첫번째 인자 ) 갯수만큼 반환한다.
+      //시작점만 알려주면 모두 반환한다.
+      function removeItem_2(items, removale) {
+        const index = items.indexOf(removale);
+        return items.slice(0, index).concat(items.slice(index + 1));
+      }
+
+      function removeItem_3(items, removale) {
+        const index = items.indexOf(removale);
+        return items.slice(0, index).concat(items.slice(index + 1));
+      }
     </script>
   </body>
 </html>
