@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Step13_lotto.html</title>
+    <style>
+      .wrapper {
+        display: flex;
+        justify-content: space-evenly;
+      }
+      h1 {
+        font-size: 50px;
+        display: flex;
+        margin: 50px auto;
+        justify-content: center;
+        animation-name: titleSmoothing;
+        animation-duration: 0.5s;
+        /* animation-iteration-count: infinite; */
+      }
+      h2 {
+        display: flex;
+        justify-content: flex-end;
+        color: rgba(50, 50, 93, 0.51);
+      }
+      p {
+        display: flex;
+        width: 50px;
+        height: 50px;
+        margin: 150px 30px;
+        border-radius: 5px;
+        border: 5px solid black;
+        justify-content: center;
+        align-items: center;
+        font-size: 20px;
+        box-shadow: 0 4px 6px rgba(50, 50, 93, 0.51);
+        animation: smothing;
+        animation-duration: 0.5s;
+      }
+      @keyframes smothing {
+        0% {
+          width: 0px;
+          height: 0px;
+          transform: rotate(-180deg);
+          color: white;
+        }
+        90% {
+          color: white;
+        }
+        100% {
+          width: 50px;
+          height: 50px;
+          transform: rotate(0deg);
+          color: black;
+        }
+      }
+      @keyframes titleSmoothing {
+        0% {
+          font-size: 25px;
+          transform: rotate(-108000deg);
+        }
+        90% {
+          font-size: 0px;
+          transform: rotate(-180deg);
+        }
+        100% {
+          font-size: 50px;
+          transform: rotate(0deg);
+        }
+      }
+
+      p:nth-child(n) {
+        border: 5px solid rgba(98, 80, 181, 0.71);
+      }
+      p:nth-child(2n) {
+        border: 5px solid rgba(84, 171, 191, 0.75);
+      }
+      p:nth-child(3n) {
+        border: 5px solid rgba(50, 50, 93, 0.51);
+      }
+      div {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      img {
+        margin: 0 50px;
+        animation: titleSmoothing;
+        animation-duration: 0.5s;
+      }
+      #resetBtn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 100px auto;
+        font-size: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>💰행운의 로또 추첨기💰</h1>
+    <h2>Make by 최영훈</h2>
+    <button id="resetBtn">다시하기</button>
+    <div class="wrapper"></div>
+    <script>
+      const resetBtn = document.querySelector("#resetBtn");
+      resetBtn.addEventListener("click", init);
+      // 1 ~ 45 까지 랜덤한 정수를 얻어내기
+      // 1. 로또 번호 6개를 랜덤하게 얻어내서 nums배열에 저장해보세요.
+      const getLottoNums = function () {
+        const nums = [];
+        while (nums.length < 6) {
+          const randomValue = parseInt(Math.random() * 45) + 1;
+          nums.includes(randomValue) ? console.log("중복값이있었지롱") : nums.push(randomValue);
+        }
+        return bubbleSort(nums);
+      };
+      //2. nums배열에 저장된 숫자를 p요소에 순서대로 출력해 보세요.
+      const outputResult = function (nums) {
+        const getDiv = document.querySelector(".wrapper");
+        for (val of nums) {
+          const p = document.createElement("p");
+          const img = document.createElement("img");
+          img.setAttribute("src", `./images/lotto-ball-${val}.png`);
+          img.setAttribute("width", "80px");
+          img.setAttribute("height", "80px");
+          getDiv.appendChild(img);
+        }
+      };
+      const clearElement = function () {
+        const getDiv = document.querySelector(".wrapper");
+        getDiv.innerHTML = "";
+        // while (getDiv.hasChildNodes()) {
+        //   getDiv.removeChild(getDiv.firstChild);
+        // }
+      };
+      function init() {
+        clearElement();
+        outputResult(getLottoNums());
+      }
+
+      function bubbleSort(array) {
+        for (let i = 0; i < array.length; i++) {
+          let swap;
+          for (let j = 0; j < array.length - 1 - i; j++) {
+            if (array[j] > array[j + 1]) {
+              swap = array[j];
+              array[j] = array[j + 1];
+              array[j + 1] = swap;
+            }
+          }
+
+          // 더 이상 바뀌지 않는다면. 정렬을 종료한다.
+          if (swap === undefined) {
+            console.log("먼데", !swap);
+            break;
+          }
+        }
+        return array;
+      }
+    </script>
+  </body>
+</html>

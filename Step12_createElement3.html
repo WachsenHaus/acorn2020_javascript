@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Step12_createElement3.html</title>
+  </head>
+  <body>
+    <h1>createElement 테스트중...</h1>
+    <table>
+      <thead>
+        <tr id="thead__tr">
+          <th>이름</th>
+          <th>주소</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>김구라</td>
+          <td>노량진</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <script>
+      let th1 = document.createElement("th");
+      th1.innerText = "해골";
+      let th2 = document.createElement("th");
+      th2.innerText = "행신동";
+      let tr = document.createElement("tr");
+      tr.append(th1);
+      tr.append(th2);
+      document.querySelector("#thead__tr").append(th1);
+      console.log(document.querySelector("#thead__tr"));
+    </script>
+  </body>
+</html>

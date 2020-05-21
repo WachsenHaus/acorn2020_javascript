@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      tbody > tr:hover {
+        background-color: yellow;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>createelement 테스트중</h1>
+    <input type="text" id="inputNum" placeholder="번호입력..." />
+    <input type="text" id="inputName" placeholder="이름입력..." />
+    <input type="text" id="inputAddr" placeholder="주소입력..." />
+    <button id="addBtn">추가</button>
+    <h1>추가된 회원목록입니다.</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>번호</th>
+          <th>이름</th>
+          <th>주소</th>
+        </tr>
+      </thead>
+      <tbody class="test"></tbody>
+    </table>
+  </body>
+  <script>
+    const addBtn = document.querySelector("#addBtn");
+    const getInputArray = document.querySelectorAll("input");
+    const tableBody = document.querySelector("tbody");
+    const addData = () => {
+      const tr = document.createElement("tr");
+      for (let i = 0; i < getInputArray.length; i++) {
+        const item = getInputArray[i].value;
+        const td = document.createElement("td");
+        td.innerText = item;
+        tr.appendChild(td);
+      }
+      tr.addEventListener("click", handleDeleteEvent);
+      tableBody.appendChild(tr);
+    };
+    const handleDeleteEvent = function () {
+      if (confirm("지우겠습니까? ") === true) {
+        this.remove();
+      }
+    };
+    addBtn.addEventListener("click", addData);
+  </script>
+</html>
