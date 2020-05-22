@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQueary05_traverse.html</title>
+  </head>
+  <body>
+    <div class="container">
+      <ul>
+        <li>
+          <a href="#" id="one">하나</a>
+        </li>
+        <li><a href="#" id="one">둘</a></li>
+        <li><a href="#" id="one">셋</a></li>
+      </ul>
+    </div>
+    <script src="js/jquery-3.5.1.js"></script>
+    <script>
+      $("#one").parent();
+      $("#one").children(); //자식 요소
+      $("#one").siblings();
+      $("#one").first(); //첫번째
+      $("#one").last(); //마지막
+      //a 요소에 click 이벤트가 일어 났을 때 호출되는 함수 등록.
+      $("a").on("click", function () {
+        $(this)
+          .text("clicked!")
+          .parent()
+          .css("background-color", "yellow")
+          .siblings() //나를제외한 같은레벨의 요소
+          .css("background-color", "#00ff00")
+          .parent() //나를 가지고있는 부모요소
+          .css("border", "1px solid red")
+          .slideUp(4);
+      });
+    </script>
+  </body>
+</html>

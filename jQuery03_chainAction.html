@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery03_chainAction.html</title>
+</head>
+<body>
+    <p id="one">p1</p>
+    <p id="two">p2</p>
+    <input type="text" id="three">
+    <script src=js/jquery-3.5.1.js></script>
+    <script>
+        //p1의 innerText를 수정하고
+        const p1 = document.querySelector("#one");
+       p1.innerText = "김구라";
+        //p1의 글자색을 지정하고 싶다.
+        p1.style.color = "red";
+        //p1의 배경색을 지정하고 싶다.
+        p1.style.backgroundColor = "yellow";
+
+        $("#two").text("김구라");
+        $("#two").css("color","red");
+        $("#two").css("backgorund-color","yellow");
+
+        $("#two")
+        .text("김구라")
+        .css("color","red")
+        .css("backgorund-color","yellow");
+
+        //input 요소에 value값을 넣어주는 동작
+        $("#three").val("원숭이");
+
+        let result1 = $("#one").text();
+        let result2 = $("#three").val();
+    </script>
+</body>
+</html>

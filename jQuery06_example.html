@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQuery06_example.html</title>
+  </head>
+  <body>
+    <h1>jQuery 예제</h1>
+    <input type="text" id="inputMsg" />
+    <button id="addBtn">추가</button>
+    <ul id="msgList"></ul>
+    <script src="js/jquery-3.5.1.js"></script>
+    <script>
+      $("#addBtn").on("click", function () {
+        let msg = $("#inputMsg").val();
+        let btn = $("<button>").text("x");
+        $("<li>").text(msg).append(btn).appendTo("#msgList");
+        $("#inputMsg").val("").focus();
+
+        $("li > button").on("click", function () {
+          $(this).parent().remove();
+        });
+      });
+    </script>
+  </body>
+</html>
