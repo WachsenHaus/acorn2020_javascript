@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>exam5.html</title>
+  </head>
+  <body>
+    <div id="wrapper"></div>
+    <script>
+      const aElement = document.createElement("a");
+      aElement.setAttribute("href", "hello.html");
+      aElement.innerHTML = "이동하기";
+      document.querySelector("#wrapper").append(aElement);
+    </script>
+  </body>
+</html>
